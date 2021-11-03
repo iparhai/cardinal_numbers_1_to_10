@@ -15,6 +15,9 @@ const RenderCharacter = ({ chObject, handleClick }) => {
             x={chObject.x}
             y={chObject.y}
             fontSize={30}
+            fontStyle="bold"
+            fontFamily= 'Calibri'
+            fill="red"
             // I will use offset to set origin to the center of the image
             onClick={handleClick}
             onTouchStart={handleClick}
