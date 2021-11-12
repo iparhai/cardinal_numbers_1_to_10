@@ -101,7 +101,8 @@ margin-top: 10vh;
   height:"25px";
 }
 .questionImage{
-  width: 14vw;
+  width: 7vw;
+  margin-top: 10vh;
 }
 .draggableImage{
   width: 14vw;
@@ -113,7 +114,7 @@ margin-top: 10vh;
   height: 20vh;
   /* max-height: 200px; */
   border: 2px dashed white;
-  margin-top:-12vh
+
 }
 
 

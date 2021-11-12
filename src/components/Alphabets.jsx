@@ -16,7 +16,7 @@ const RenderCharacter = ({ chObject, handleClick }) => {
             y={chObject.y}
             fontSize={30}
             fontStyle="bold"
-            fontFamily= 'Calibri'
+            fontFamily='Calibri'
             fill="red"
             // I will use offset to set origin to the center of the image
             onClick={handleClick}
@@ -112,47 +112,50 @@ const Alphabets = (props) => {
 
     return (
 
-        <div className="noselect parentDiv" >
-
-            <div className="dropBox"
-                ref={container}
-            >
-                <Stage
-                    width={stageWidth}
-                    height={stageHeight}
-                    ref={stageRef}
+        <div className="noselect parentDiv"  style={{display : "flex"}}>
+            <div>
+                <div className="dropBox"
+                    ref={container}
                 >
-                    <Layer>
-                        {chSet.map((chObject, index) => {
-                            return <RenderCharacter chObject={chObject} handleClick={() => {
-                                let temp = [...blanks]
-                                temp[temp.length - 1] = chObject.ch
-                                setAnswer(answer + chObject.ch)
-                                temp.push("?")
-                                setBlanks(temp)
-                            }} />
-                        })}
-                    </Layer>
-                </Stage>
+                    <Stage
+                        width={stageWidth}
+                        height={stageHeight}
+                        ref={stageRef}
+                    >
+                        <Layer>
+                            {chSet.map((chObject, index) => {
+                                return <RenderCharacter chObject={chObject} handleClick={() => {
+                                    let temp = [...blanks]
+                                    temp[temp.length - 1] = chObject.ch
+                                    setAnswer(answer + chObject.ch)
+                                    temp.push("?")
+                                    setBlanks(temp)
+                                }} />
+                            })}
+                        </Layer>
+                    </Stage>
+                </div>
+                <div style={{ display: "flex", maxWidth:"300px" }}>
+                    {blanks.map((item, index) => {
+                        return (
+                            <h1 onClick={() => {
+                                if (index == blanks.length - 1) return;
+                                setBlanks(
+                                    blanks.filter((itm, idx) => idx !== index)
+                                )
+                                setAnswer(removeNthCharacter(answer, index))
+                            }}>
+                                <u>{item}</u> &nbsp;
+                            </h1>
+                        )
+                    })}
+                </div>
             </div>
-            <div style={{ display: "flex", marginLeft: "70px" }}>
-                {blanks.map((item, index) => {
-                    return (
-                        <h1 onClick={() => {
-                            if (index == blanks.length - 1) return;
-                            setBlanks(
-                                blanks.filter((itm, idx) => idx !== index)
-                            )
-                            setAnswer(removeNthCharacter(answer, index))
-                        }}>
-                            <u>{item}</u> &nbsp;
-                        </h1>
-                    )
-                })}
+            <div>
+                <button className="App-link" style={{marginLeft : "20px", marginBottom : "10vh"}}onClick={() => {
+                    props.onClick()
+                }}> <i class="fa fa-paper-plane" aria-hidden="true"></i> </button>
             </div>
-            <button className="App-link" onClick={() => {
-                props.onClick()
-            }}> <i class="fa fa-paper-plane" aria-hidden="true"></i> </button>
         </div >
 
     );
