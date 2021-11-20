@@ -2,7 +2,7 @@
   "name": "math-app",
   "version": "0.8.0",
   "private": true,
-  "homepage": "http://shaffan-NU.github.io/cardinal_1_10",
+  "homepage": "https://iparhai.github.io/cardinal_numbers_1_to_10",
   "dependencies": {
     "animate.css": "^4.1.1",
     "axios": "^0.21.4",
